@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"yarn tileserver\" \"next dev\"",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "concurrently \"yarn tileserver\" \"next start\"",
+    "lint": "next lint",
+    "tileserver": "tileserver-gl-light 2017-07-03_poland_wroclaw.mbtiles"
   },
   "dependencies": {
+    "concurrently": "^7.1.0",
+    "mapbox-gl": "npm:empty-npm-package@1.0.0",
+    "maplibre-gl": "^2.1.9",
     "next": "12.1.5",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-map-gl": "^7.0.11"
   },
   "devDependencies": {
     "@types/node": "17.0.27",
